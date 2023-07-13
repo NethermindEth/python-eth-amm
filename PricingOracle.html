@@ -1,0 +1,713 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>Pricing Oracle &#8212; Python ETH AMM Documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/autodoc_pydantic.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'PricingOracle';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="UniswapV3Pool" href="UniswapV3Pool.html" />
+    <link rel="prev" title="Pool Factory" href="PoolFactory.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+   
+
+<a class="navbar-brand logo" href="https://nethermind.io">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo-light.svg" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="_static/logo-dark.svg" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Intro</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Quickstart.html">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Changelog.html">Releases</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Library Guides</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Extracting%20Block-by-Block%20Price%20Data.html">Extracting Block-by-Block Price Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Valuing%20Uniswap%20V3%20Positions.html">Valuing Uniswap V3 Liquidity Positions</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Class Reference</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="ERC20Token.html">Standard Token Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Exceptions.html">Exceptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PoolFactory.html">Pool Factory</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Pricing Oracle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="UniswapV3Pool.html">UniswapV3Pool</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/PricingOracle.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Pricing Oracle</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#initializing-pricing-oracle">Initializing Pricing Oracle</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#class-documentation">Class Documentation</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#python_eth_amm.PricingOracle"><code class="docutils literal notranslate"><span class="pre">PricingOracle</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#python_eth_amm.PricingOracle.backfill_prices"><code class="docutils literal notranslate"><span class="pre">PricingOracle.backfill_prices()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#python_eth_amm.PricingOracle.block_to_datetime"><code class="docutils literal notranslate"><span class="pre">PricingOracle.block_to_datetime()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#python_eth_amm.PricingOracle.datetime_to_block"><code class="docutils literal notranslate"><span class="pre">PricingOracle.datetime_to_block()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#python_eth_amm.PricingOracle.get_price_at_block"><code class="docutils literal notranslate"><span class="pre">PricingOracle.get_price_at_block()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#python_eth_amm.PricingOracle.get_price_over_time"><code class="docutils literal notranslate"><span class="pre">PricingOracle.get_price_over_time()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#python_eth_amm.PricingOracle.update_price_feeds"><code class="docutils literal notranslate"><span class="pre">PricingOracle.update_price_feeds()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#database-tables">Database Tables</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#backfilled-pools"><code class="docutils literal notranslate"><span class="pre">backfilled_pools</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#block-timestamps"><code class="docutils literal notranslate"><span class="pre">block_timestamps</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#token-prices"><code class="docutils literal notranslate"><span class="pre">token_prices</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#uni-v3-pool-creations"><code class="docutils literal notranslate"><span class="pre">uni_v3_pool_creations</span></code></a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="pricing-oracle">
+<h1>Pricing Oracle<a class="headerlink" href="#pricing-oracle" title="Permalink to this heading">#</a></h1>
+<section id="initializing-pricing-oracle">
+<h2>Initializing Pricing Oracle<a class="headerlink" href="#initializing-pricing-oracle" title="Permalink to this heading">#</a></h2>
+</section>
+<section id="class-documentation">
+<h2>Class Documentation<a class="headerlink" href="#class-documentation" title="Permalink to this heading">#</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="python_eth_amm.PricingOracle">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">python_eth_amm.</span></span><span class="sig-name descname"><span class="pre">PricingOracle</span></span><a class="headerlink" href="#python_eth_amm.PricingOracle" title="Permalink to this definition">#</a></dt>
+<dd><p>Pricing oracle for Arbitrary ERC20 Tokens.  Any ERC20 token that has a USDC or WETH UniswapV3 pool can
+be priced easily.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="python_eth_amm.PricingOracle.backfill_prices">
+<span class="sig-name descname"><span class="pre">backfill_prices</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">token_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ChecksumAddress</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.date" title="(in Python v3.11)"><span class="pre">date</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.11)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.date" title="(in Python v3.11)"><span class="pre">date</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.11)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#python_eth_amm.PricingOracle.backfill_prices" title="Permalink to this definition">#</a></dt>
+<dd><p>Backfill prices for a given token from the spot price on Uniswap V3 pools.  This data is extracted from Swap
+events, and is highly granular.  To backfill a price, convert the ERC20 token address to a checksummed address,        and then specify a start and end point.  The start and end bounds can be input as either a block number, or a
+datetime.date object.  If no start or end point is provided, it will backfill from the contract initialization
+block to the current block.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This function queries all swap events within a price range to generate the spot price.  On large pools
+like USDC/WETH, this backfill process can take hours depending on the speed of the RPC node.
+It is best to specify a start and end point for backfilling, and only backfill the price range needed.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>token_id</strong> – Hex Address of Token to be Priced</p></li>
+<li><p><strong>start</strong> – Start point for backfill operation.  Can be input as a blocknumber, or a datetime.date object.
+If no start point is provided, it will backfill from the contract initialization block.</p></li>
+<li><p><strong>end</strong> – End point for backfill operation.  Can be input as a blocknumber, or a datetime.date object.
+If no end point is provided, it will backfill to the current block.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="python_eth_amm.PricingOracle.block_to_datetime">
+<span class="sig-name descname"><span class="pre">block_to_datetime</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">block_number</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime" title="(in Python v3.11)"><span class="pre">datetime</span></a></span></span><a class="headerlink" href="#python_eth_amm.PricingOracle.block_to_datetime" title="Permalink to this definition">#</a></dt>
+<dd><p>Converts a block number to an approximate datetime.  The accuracy of this method is determined the
+timestamp_resolution parameter when initializing an oracle.  By default, this value is 10k, which gives
+the block to datetime conversion an accuracy of += 10 mins.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>block_number</strong> – Block number to convert to datetime</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>datetime.datetime object in UTC timezone</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="python_eth_amm.PricingOracle.datetime_to_block">
+<span class="sig-name descname"><span class="pre">datetime_to_block</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dt</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime" title="(in Python v3.11)"><span class="pre">datetime</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.date" title="(in Python v3.11)"><span class="pre">date</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a></span></span><a class="headerlink" href="#python_eth_amm.PricingOracle.datetime_to_block" title="Permalink to this definition">#</a></dt>
+<dd><p>Converts a datetime object to a block number.  Just like block_to_datetime, the accuracy of this method is
+determined by the timestamp_resolution parameter when initializing an oracle.  With the default value of 10k,
+the prescision of this method is +- 50 blocks</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>dt</strong> – Date to convert to approximate block number.  If a datetime.date object is passed, it will get the block at
+UTC midnight of that date.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="python_eth_amm.PricingOracle.get_price_at_block">
+<span class="sig-name descname"><span class="pre">get_price_at_block</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">block_number</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">token_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ChecksumAddress</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#python_eth_amm.PricingOracle.get_price_at_block" title="Permalink to this definition">#</a></dt>
+<dd><p>Returns the precise price of a token at a given block number.  Spot prices represent the pool’s state at the
+end of a block.</p>
+<dl class="simple">
+<dt>..warning::</dt><dd><p>This function performs a single database query, and returns the result without performing
+any safety checks.  If a price is backfilled to block 14m, and you query the price at block 15m, it will
+return the last price stored in the database (block 14m) and wont raise any warnings that the requested
+block is not backfilled.  For a safer way to query prices, use
+<code class="xref py py-func docutils literal notranslate"><span class="pre">python_eth_amm.Pricing.get_price_over_time()</span></code></p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>block_number</strong> – Block Number to query price at</p></li>
+<li><p><strong>token_id</strong> – Address of ERC20 Token that is being priced</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="python_eth_amm.PricingOracle.get_price_over_time">
+<span class="sig-name descname"><span class="pre">get_price_over_time</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">token_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ChecksumAddress</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span></span></span><a class="headerlink" href="#python_eth_amm.PricingOracle.get_price_over_time" title="Permalink to this definition">#</a></dt>
+<dd><p>Returns a dataframe of the token price over time with the following schema:</p>
+<table class="table" id="id1">
+<caption><span class="caption-text">Price Over Time Schema</span><a class="headerlink" href="#id1" title="Permalink to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Column Name</p></th>
+<th class="head"><p>DataType</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>timestamp</p></td>
+<td><p>UTC datetime</p></td>
+<td><dl class="simple">
+<dt>Timestamp Estimate for block.  This estimate is generated from</dt><dd><p><a class="reference internal" href="#python_eth_amm.PricingOracle.block_to_datetime" title="python_eth_amm.PricingOracle.block_to_datetime"><code class="xref py py-func docutils literal notranslate"><span class="pre">python_eth_amm.PricingOracle.block_to_datetime()</span></code></a>
+and is only as accurate as the timestamp</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="row-odd"><td><p>block_number</p></td>
+<td><p>integer</p></td>
+<td><p>Precise Block number the price was extracted at</p></td>
+</tr>
+<tr class="row-even"><td><p>spot_price</p></td>
+<td><p>float</p></td>
+<td><p>Spot Price of the token in USDC at the given block number.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>token_id</strong> – </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="python_eth_amm.PricingOracle.update_price_feeds">
+<span class="sig-name descname"><span class="pre">update_price_feeds</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.11)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#python_eth_amm.PricingOracle.update_price_feeds" title="Permalink to this definition">#</a></dt>
+<dd><p>Updates all backfilled price feeds in the database to the latest block.  This function is intended to be run
+as a cron job to keep the price feeds up to date.</p>
+<p>It will update the WETH price, as well as any other token that has been backfilled in the database.</p>
+<dl class="simple">
+<dt>..warning::</dt><dd><p>If the last backfilled price for a token is more than 1 week behind the latest block, the price will
+not be updated, and a warning will be logged.   Utilize the <cite>backfill_prices()</cite> method to extract
+historical price data.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="database-tables">
+<h2>Database Tables<a class="headerlink" href="#database-tables" title="Permalink to this heading">#</a></h2>
+<p>All database objects for the Pricing oracle are stored under the <cite>pricing_oracle</cite> schema.</p>
+<section id="backfilled-pools">
+<h3><code class="docutils literal notranslate"><span class="pre">backfilled_pools</span></code><a class="headerlink" href="#backfilled-pools" title="Permalink to this heading">#</a></h3>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>pool_id</p></td>
+<td><p>varchar(42)</p></td>
+<td><p>Hex Address of the Pool Contract</p></td>
+</tr>
+<tr class="row-odd"><td><p>backfill_start</p></td>
+<td><p>integer</p></td>
+<td><p>Block Number the Pool Backfill Started</p></td>
+</tr>
+<tr class="row-even"><td><p>backfill_end</p></td>
+<td><p>integer</p></td>
+<td><p>Block Number the Pool Backfill Ended</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="block-timestamps">
+<h3><code class="docutils literal notranslate"><span class="pre">block_timestamps</span></code><a class="headerlink" href="#block-timestamps" title="Permalink to this heading">#</a></h3>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>block_number</p></td>
+<td><p>integer</p></td>
+<td><p>Block Number</p></td>
+</tr>
+<tr class="row-odd"><td><p>timestamp</p></td>
+<td><p>timestamp</p></td>
+<td><p>UTC Timestamp for the Block</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="token-prices">
+<h3><code class="docutils literal notranslate"><span class="pre">token_prices</span></code><a class="headerlink" href="#token-prices" title="Permalink to this heading">#</a></h3>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>token_id</p></td>
+<td><p>varchar(42)</p></td>
+<td><p>Hex Token Address</p></td>
+</tr>
+<tr class="row-odd"><td><p>block_number</p></td>
+<td><p>bigint(20) unsigned</p></td>
+<td><p>Block Number the Price was recorded at</p></td>
+</tr>
+<tr class="row-even"><td><p>spot_price</p></td>
+<td><p>numeric</p></td>
+<td><p>Spot Price of the Pool at end of block</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="uni-v3-pool-creations">
+<h3><code class="docutils literal notranslate"><span class="pre">uni_v3_pool_creations</span></code><a class="headerlink" href="#uni-v3-pool-creations" title="Permalink to this heading">#</a></h3>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>token_0</p></td>
+<td><p>varchar(42)</p></td>
+<td><p>Hex Token Address for Token 0</p></td>
+</tr>
+<tr class="row-odd"><td><p>token_1</p></td>
+<td><p>varchar(42)</p></td>
+<td><p>Hex Token Address for Token 1</p></td>
+</tr>
+<tr class="row-even"><td><p>pool_address</p></td>
+<td><p>varchar(42)</p></td>
+<td><p>Hex Address of the Pool Contract</p></td>
+</tr>
+<tr class="row-odd"><td><p>fee</p></td>
+<td><p>integer</p></td>
+<td><p>Swap fee for pool in 100ths of a bip</p></td>
+</tr>
+<tr class="row-even"><td><p>block_number</p></td>
+<td><p>integer</p></td>
+<td><p>Block Number the Pool was created at</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="PoolFactory.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Pool Factory</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="UniswapV3Pool.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">UniswapV3Pool</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#initializing-pricing-oracle">Initializing Pricing Oracle</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#class-documentation">Class Documentation</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#python_eth_amm.PricingOracle"><code class="docutils literal notranslate"><span class="pre">PricingOracle</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#python_eth_amm.PricingOracle.backfill_prices"><code class="docutils literal notranslate"><span class="pre">PricingOracle.backfill_prices()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#python_eth_amm.PricingOracle.block_to_datetime"><code class="docutils literal notranslate"><span class="pre">PricingOracle.block_to_datetime()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#python_eth_amm.PricingOracle.datetime_to_block"><code class="docutils literal notranslate"><span class="pre">PricingOracle.datetime_to_block()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#python_eth_amm.PricingOracle.get_price_at_block"><code class="docutils literal notranslate"><span class="pre">PricingOracle.get_price_at_block()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#python_eth_amm.PricingOracle.get_price_over_time"><code class="docutils literal notranslate"><span class="pre">PricingOracle.get_price_over_time()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#python_eth_amm.PricingOracle.update_price_feeds"><code class="docutils literal notranslate"><span class="pre">PricingOracle.update_price_feeds()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#database-tables">Database Tables</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#backfilled-pools"><code class="docutils literal notranslate"><span class="pre">backfilled_pools</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#block-timestamps"><code class="docutils literal notranslate"><span class="pre">block_timestamps</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#token-prices"><code class="docutils literal notranslate"><span class="pre">token_prices</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#uni-v3-pool-creations"><code class="docutils literal notranslate"><span class="pre">uni_v3_pool_creations</span></code></a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Nethermind
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2023, Nethermind.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
